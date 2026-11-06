@@ -1,0 +1,50 @@
+<UserControl x:Class="HeadshotPanel.Views.DashboardView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Dashboard" Style="{StaticResource PageTitleStyle}"/>
+            <TextBlock Text="Monitor your offline vision workspace." Style="{StaticResource PageDescriptionStyle}"/>
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Style="{StaticResource StatusCardStyle}">
+                <StackPanel>
+                    <TextBlock Text="APPLICATION STATUS" Style="{StaticResource CardLabelStyle}"/>
+                    <TextBlock Text="READY" Style="{StaticResource StatusReadyStyle}"/>
+                    <TextBlock Text="Desktop workspace is operational." Style="{StaticResource CardDetailStyle}"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Column="1" Style="{StaticResource StatusCardStyle}" Margin="12,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="VISION ENGINE" Style="{StaticResource CardLabelStyle}"/>
+                    <TextBlock Text="{Binding EngineStatus, FallbackValue='STOPPED', TargetNullValue='STOPPED'}"
+                               Style="{StaticResource StatusOfflineStyle}"/>
+                    <TextBlock Text="No engine is attached to this build." Style="{StaticResource CardDetailStyle}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Border Grid.Row="2" Style="{StaticResource ContentCardStyle}">
+            <StackPanel>
+                <TextBlock Text="Detection workflow" Style="{StaticResource SectionTitleStyle}"/>
+                <TextBlock Text="Prepare private or prerecorded footage in the Detection Lab. This educational workspace is designed for offline computer vision analysis only."
+                           Style="{StaticResource BodyTextStyle}"/>
+                <Button Content="OPEN DETECTION LAB"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        HorizontalAlignment="Left"
+                        Command="{Binding NavigateCommand}"
+                        CommandParameter="{x:Static models:NavigationPage.DetectionLab}"
+                        xmlns:models="clr-namespace:HeadshotPanel.Models"
+                        Tag="DetectionLab"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

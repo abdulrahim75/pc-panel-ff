@@ -1,0 +1,18 @@
+.vs/
+.idea/
+
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local media and runtime files
+*.log

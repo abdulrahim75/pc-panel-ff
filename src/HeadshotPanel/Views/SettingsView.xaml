@@ -1,0 +1,17 @@
+<UserControl x:Class="HeadshotPanel.Views.SettingsView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel>
+        <TextBlock Text="Settings" Style="{StaticResource PageTitleStyle}"/>
+        <TextBlock Text="Configure the HeadshotPanel workspace." Style="{StaticResource PageDescriptionStyle}"/>
+        <Border Style="{StaticResource ContentCardStyle}">
+            <StackPanel>
+                <TextBlock Text="Application preferences" Style="{StaticResource SectionTitleStyle}"/>
+                <CheckBox Content="Start minimized" Foreground="{StaticResource PrimaryText}" Margin="0,20,0,12" IsEnabled="False"/>
+                <CheckBox Content="Show offline-analysis reminders" Foreground="{StaticResource PrimaryText}" IsChecked="True" IsEnabled="False"/>
+                <TextBlock Text="These preferences will be connected in a future configuration phase."
+                           Style="{StaticResource CardDetailStyle}" Margin="0,18,0,0"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>
